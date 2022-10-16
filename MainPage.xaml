@@ -11,13 +11,12 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-
             <HorizontalStackLayout
                 Spacing="5"
                 HorizontalOptions="Center">
                 
                 <Entry
-                x:Name="CSVPathEnt"
+                x:Name="CSVPathTxt"
                 Placeholder="Sorgente File"
                 HorizontalOptions="CenterAndExpand" 
                 />
@@ -48,7 +47,7 @@
                 />
 
                 <Picker 
-                    x:Name="SurnamePicker">
+                    x:Name="SurnamePckr">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Contiene</x:String>
@@ -72,6 +71,7 @@
                 x:Name="ListView"
                  ItemsSource="{Binding ContactsList}"
                 />
+            
         </VerticalStackLayout>
     </ScrollView>
 

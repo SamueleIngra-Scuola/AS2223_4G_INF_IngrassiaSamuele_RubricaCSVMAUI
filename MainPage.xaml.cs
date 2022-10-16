@@ -64,7 +64,7 @@ public partial class MainPage : ContentPage
     {
         try
         {
-            StreamReader file = new StreamReader(CSVPathEnt.Text);
+            StreamReader file = new StreamReader(CSVPathTxt.Text);
 
             string line = file.ReadLine();
 
@@ -90,13 +90,14 @@ public partial class MainPage : ContentPage
     private void SearchClicked(object sender, EventArgs e)
     {
         LoadCSVFile();
+
         string[] contactsList = new string[n_contacts];
 
         for (int i = 0; i < n_contacts; i++)
         {
             Contact contact = contacts[i];
 
-            switch (SurnamePicker.SelectedItem)
+            switch (SurnamePckr.SelectedItem)
             {
                 case "Contiene":
                     if (contact.GetSurname().ToUpper().Contains(SurnameTxt.Text.ToUpper()))
@@ -122,7 +123,7 @@ public partial class MainPage : ContentPage
     private async void BrowseClicked(object sender, EventArgs e)
     {
         var result = await FilePicker.Default.PickAsync();
-        CSVPathEnt.Text = result.FullPath.ToString();
+        CSVPathTxt.Text = result.FullPath.ToString();
     }
 }
 
