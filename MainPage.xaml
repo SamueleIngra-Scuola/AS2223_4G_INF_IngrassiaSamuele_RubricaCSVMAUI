@@ -8,25 +8,27 @@
 
         <VerticalStackLayout
             Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+            Padding="10"
+            VerticalOptions="Start">
 
             <HorizontalStackLayout
                 Spacing="5"
                 HorizontalOptions="Center">
                 
                 <Entry
-                x:Name="txtPath"
-                Placeholder="Sorgente File"
-                HorizontalOptions="CenterAndExpand" 
+                    x:Name="txtPath"
+                    Placeholder="Sorgente File"
+                    HorizontalOptions="CenterAndExpand" 
+                    WidthRequest="500"
                 />
 
                 <Button
-                x:Name="btnBrowse"
-                Text="..."
-                SemanticProperties.Hint="Cerca una file CSV Rubrica"
-                Clicked="Browse_Clicked"
-                HorizontalOptions="End" />
+                    x:Name="btnBrowse"
+                    Text="..."
+                    SemanticProperties.Hint="Cerca una file CSV Rubrica"
+                    Clicked="Browse_Clicked"
+                    HorizontalOptions="End" 
+                />
 
             </HorizontalStackLayout>
 
@@ -35,19 +37,21 @@
                 HorizontalOptions="Center">
 
                 <Label
-                x:Name="lblFilters"
-                Text="Filtri"
-                HorizontalOptions="Center" 
+                    x:Name="lblFilters"
+                    Text="Filtri"
+                    HorizontalOptions="Center" 
                 />
 
                 <Entry
-                x:Name="txtSurname"
-                Placeholder="Cognome"
-                HorizontalOptions="Center"  
+                    x:Name="txtSurname"
+                    Placeholder="Cognome"
+                    HorizontalOptions="Center"  
+                    WidthRequest="300"
                 />
 
                 <Picker 
-                    x:Name="cmbSurnameFilter">
+                    x:Name="cmbSurnameFilter"
+                    WidthRequest="200">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Contiene</x:String>
@@ -56,8 +60,6 @@
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
-
-
             </HorizontalStackLayout>
 
             <Button
@@ -65,12 +67,13 @@
                 Text="Visualizza"
                 SemanticProperties.Hint="Visualizza la Rubrica"
                 Clicked="Search_Clicked"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center" 
+            />
 
             <ListView
                 x:Name="lstContacts"
-                 ItemsSource="{Binding ContactsList}"
-                />
+                ItemsSource="{Binding ContactsList}"
+            />
             
         </VerticalStackLayout>
     </ScrollView>
