@@ -4,8 +4,6 @@
              x:Class="RubricaCSVMAUI.MainPage">
 
     <ScrollView>
-
-
         <VerticalStackLayout
             Spacing="25"
             Padding="10"
