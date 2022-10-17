@@ -120,7 +120,7 @@ public partial class MainPage : ContentPage
 
         lstContacts.ItemsSource = contactsList;
         lstContacts.Header = $"Rubrica ({n} Contatti)";
-        }      
+    }      
 }
 
     private async void Browse_Clicked(object sender, EventArgs e)
