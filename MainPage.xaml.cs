@@ -118,17 +118,9 @@ public partial class MainPage : ContentPage
 
         Array.Resize<string>(ref contactsList, n);
 
-        if (n != 0)
-        {
-            lstContacts.ItemsSource = contactsList;
-            lstContacts.Header = $"Rubrica ({n} Contatti)";
-        }
-        else
-        {
-            lstContacts.ItemsSource = contactsList;
-            lstContacts.Header = "Rubrica (0 Contatti)";
-        }
-            
+        lstContacts.ItemsSource = contactsList;
+        lstContacts.Header = $"Rubrica ({n} Contatti)";
+        }      
 }
 
     private async void Browse_Clicked(object sender, EventArgs e)
