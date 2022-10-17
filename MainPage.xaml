@@ -16,16 +16,16 @@
                 HorizontalOptions="Center">
                 
                 <Entry
-                x:Name="CSVPathTxt"
+                x:Name="txtPath"
                 Placeholder="Sorgente File"
                 HorizontalOptions="CenterAndExpand" 
                 />
 
                 <Button
-                x:Name="BrowseBtn"
+                x:Name="btnBrowse"
                 Text="..."
                 SemanticProperties.Hint="Cerca una file CSV Rubrica"
-                Clicked="BrowseClicked"
+                Clicked="Browse_Clicked"
                 HorizontalOptions="End" />
 
             </HorizontalStackLayout>
@@ -35,19 +35,19 @@
                 HorizontalOptions="Center">
 
                 <Label
-                x:Name="FiltersLbl"
+                x:Name="lblFilters"
                 Text="Filtri"
                 HorizontalOptions="Center" 
                 />
 
                 <Entry
-                x:Name="SurnameTxt"
+                x:Name="txtSurname"
                 Placeholder="Cognome"
                 HorizontalOptions="Center"  
                 />
 
                 <Picker 
-                    x:Name="SurnamePckr">
+                    x:Name="cmbSurnameFilter">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Contiene</x:String>
@@ -61,14 +61,14 @@
             </HorizontalStackLayout>
 
             <Button
-                x:Name="SearchBtn"
+                x:Name="btnSearch"
                 Text="Visualizza"
                 SemanticProperties.Hint="Visualizza la Rubrica"
-                Clicked="SearchClicked"
+                Clicked="Search_Clicked"
                 HorizontalOptions="Center" />
 
             <ListView
-                x:Name="ListView"
+                x:Name="lstContacts"
                  ItemsSource="{Binding ContactsList}"
                 />
             

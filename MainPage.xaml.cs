@@ -64,7 +64,7 @@ public partial class MainPage : ContentPage
     {
         try
         {
-            StreamReader file = new StreamReader(CSVPathTxt.Text);
+            StreamReader file = new StreamReader(txtPath.Text);
 
             string line = file.ReadLine();
 
@@ -87,7 +87,7 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private void SearchClicked(object sender, EventArgs e)
+    private void Search_Clicked(object sender, EventArgs e)
     {
         LoadCSVFile();
 
@@ -97,18 +97,18 @@ public partial class MainPage : ContentPage
         {
             Contact contact = contacts[i];
 
-            switch (SurnamePckr.SelectedItem)
+            switch (cmbSurnameFilter.SelectedItem)
             {
                 case "Contiene":
-                    if (contact.GetSurname().ToUpper().Contains(SurnameTxt.Text.ToUpper()))
+                    if (contact.GetSurname().ToUpper().Contains(txtSurname.Text.ToUpper()))
                         contactsList[i] = contact.GetContactInfo();
                     break;
                 case "Inizia Con":
-                    if (contact.GetSurname().ToUpper().StartsWith(SurnameTxt.Text.ToUpper()))
+                    if (contact.GetSurname().ToUpper().StartsWith(txtSurname.Text.ToUpper()))
                         contactsList[i] = contact.GetContactInfo();
                     break;
                 case "Termina Con":
-                    if (contact.GetSurname().ToUpper().EndsWith(SurnameTxt.Text.ToUpper()))
+                    if (contact.GetSurname().ToUpper().EndsWith(txtSurname.Text.ToUpper()))
                         contactsList[i] = contact.GetContactInfo();
                     break;
                 default:
@@ -117,13 +117,13 @@ public partial class MainPage : ContentPage
             }
         }
 
-        ListView.ItemsSource = contactsList;
+        lstContacts.ItemsSource = contactsList;
     }
 
-    private async void BrowseClicked(object sender, EventArgs e)
+    private async void Browse_Clicked(object sender, EventArgs e)
     {
         var result = await FilePicker.Default.PickAsync();
-        CSVPathTxt.Text = result.FullPath.ToString();
+        txtPath.Text = result.FullPath.ToString();
     }
 }
 
