@@ -117,10 +117,9 @@ public partial class MainPage : ContentPage
         }
 
         Array.Resize<string>(ref contactsList, n);
-
+        
         lstContacts.ItemsSource = contactsList;
-        lstContacts.Header = $"Rubrica ({n} Contatti)";
-    }      
+        lstContacts.Header = $"Rubrica ({n} Contatti)";    
 }
 
     private async void Browse_Clicked(object sender, EventArgs e)
