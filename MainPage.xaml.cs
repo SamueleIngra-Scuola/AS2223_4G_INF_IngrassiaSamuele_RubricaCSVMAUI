@@ -60,7 +60,7 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private void LoadCSVFile()
+    private async void LoadCSVFile()
     {
         try
         {
@@ -83,7 +83,7 @@ public partial class MainPage : ContentPage
         }
         catch (Exception e)
         {
-            //MessageBox.Show(e.ToString(), "Errore durante il caricamento del file");
+            await DisplayAlert("Errore durante il caricamento del file", e.ToString(), "Ho capito");
         }
     }
 
