@@ -118,7 +118,7 @@ public partial class MainPage : ContentPage
 
         Array.Resize<string>(ref contactsList, n);
 
-        if(n != 0)
+        if (n != 0)
         {
             lstContacts.ItemsSource = contactsList;
             lstContacts.Header = $"Rubrica ({n} Contatti)";
