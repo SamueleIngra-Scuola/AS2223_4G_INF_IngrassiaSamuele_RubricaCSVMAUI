@@ -90,6 +90,7 @@ public partial class MainPage : ContentPage
     private void Search_Clicked(object sender, EventArgs e)
     {
         int n = 0;
+
         LoadCSVFile();
 
         string[] contactsList = new string[n_contacts];
