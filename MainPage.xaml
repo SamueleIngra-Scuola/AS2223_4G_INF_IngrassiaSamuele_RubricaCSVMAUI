@@ -72,7 +72,9 @@
 
             <ListView
                 x:Name="lstContacts"
+                Header="Rubrica (0 Contatti)"
                 ItemsSource="{Binding ContactsList}"
+                HorizontalOptions="Center" 
             />
             
         </VerticalStackLayout>

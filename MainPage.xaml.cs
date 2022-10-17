@@ -89,6 +89,7 @@ public partial class MainPage : ContentPage
 
     private void Search_Clicked(object sender, EventArgs e)
     {
+        int n = 0;
         LoadCSVFile();
 
         string[] contactsList = new string[n_contacts];
@@ -101,29 +102,53 @@ public partial class MainPage : ContentPage
             {
                 case "Contiene":
                     if (contact.GetSurname().ToUpper().Contains(txtSurname.Text.ToUpper()))
-                        contactsList[i] = contact.GetContactInfo();
+                    {
+                        contactsList[n] = contact.GetContactInfo();
+                        n++;
+                    }
                     break;
                 case "Inizia Con":
                     if (contact.GetSurname().ToUpper().StartsWith(txtSurname.Text.ToUpper()))
-                        contactsList[i] = contact.GetContactInfo();
+                    {
+                        contactsList[n] = contact.GetContactInfo();
+                        n++;
+                    }
                     break;
                 case "Termina Con":
                     if (contact.GetSurname().ToUpper().EndsWith(txtSurname.Text.ToUpper()))
-                        contactsList[i] = contact.GetContactInfo();
+                    {
+                        contactsList[n] = contact.GetContactInfo();
+                        n++;
+                    }
                     break;
                 default:
-                    contactsList[i] = contact.GetContactInfo();
+                    {
+                        contactsList[n] = contact.GetContactInfo();
+                        n++;
+                    }
                     break;
             }
         }
 
-        lstContacts.ItemsSource = contactsList;
-    }
+        Array.Resize<string>(ref contactsList, n);
+
+        if(n != 0)
+        {
+            lstContacts.ItemsSource = contactsList;
+            lstContacts.Header = $"Rubrica ({n} Contatti)";
+        }
+        else
+            lstContacts.Header = "Rubrica (0 Contatti)";
+
+}
 
     private async void Browse_Clicked(object sender, EventArgs e)
     {
         var result = await FilePicker.Default.PickAsync();
-        txtPath.Text = result.FullPath.ToString();
+        if (result != null)
+            txtPath.Text = result.FullPath.ToString();
+        else
+            await DisplayAlert("Errore", "Non è stato inserito alcun file!", "Ho capito");
     }
 }
 
