@@ -140,7 +140,6 @@ public partial class MainPage : ContentPage
         }
         else
             lstContacts.Header = "Rubrica (0 Contatti)";
-
 }
 
     private async void Browse_Clicked(object sender, EventArgs e)
