@@ -16,47 +16,32 @@ public partial class MainPage : ContentPage
 
     public class Contact
     {
-        string surname;
-        string name;
-        string city;
+        public string Surname { get; set; }
+        public string Name { get; set; }
+        public string City { get; set; }
 
         public Contact() { }
 
         public Contact(string surname, string name, string city)
         {
-            this.surname = surname;
-            this.name = name;
-            this.city = city;
+            this.Surname = surname;
+            this.Name = name;
+            this.City = city;
         }
 
         public Contact(string line)
         {
             string[] token = line.Split(',');
 
-            surname = token[0];
-            name = token[1];
-            city = token[2];
+            Surname = token[0];
+            Name = token[1];
+            City = token[2];
         }
 
         //GetInfo Methods
         public string GetContactInfo()
         {
-            return $"{surname} | {name} | {city}";
-        }
-
-        public string GetSurname()
-        {
-            return surname;
-        }
-
-        public string GetName()
-        {
-            return name;
-        }
-
-        public string GetCity()
-        {
-            return city;
+            return $"{Surname} | {Name} | {City}";
         }
     }
 
@@ -102,21 +87,21 @@ public partial class MainPage : ContentPage
             switch (cmbSurnameFilter.SelectedItem)
             {
                 case "Contiene":
-                    if (contact.GetSurname().ToUpper().Contains(txtSurname.Text.ToUpper()))
+                    if (contact.Surname.ToUpper().Contains(txtSurname.Text.ToUpper()))
                     {
                         contactsList[n] = contact.GetContactInfo();
                         n++;
                     }
                     break;
                 case "Inizia Con":
-                    if (contact.GetSurname().ToUpper().StartsWith(txtSurname.Text.ToUpper()))
+                    if (contact.Surname.ToUpper().StartsWith(txtSurname.Text.ToUpper()))
                     {
                         contactsList[n] = contact.GetContactInfo();
                         n++;
                     }
                     break;
                 case "Termina Con":
-                    if (contact.GetSurname().ToUpper().EndsWith(txtSurname.Text.ToUpper()))
+                    if (contact.Surname.ToUpper().EndsWith(txtSurname.Text.ToUpper()))
                     {
                         contactsList[n] = contact.GetContactInfo();
                         n++;
@@ -139,7 +124,11 @@ public partial class MainPage : ContentPage
             lstContacts.Header = $"Rubrica ({n} Contatti)";
         }
         else
+        {
+            lstContacts.ItemsSource = contactsList;
             lstContacts.Header = "Rubrica (0 Contatti)";
+        }
+            
 }
 
     private async void Browse_Clicked(object sender, EventArgs e)
